@@ -1,0 +1,158 @@
+<html>
+<head>
+    <title> Register Page</title>
+    <script src="C:\Users\Dhaval Citrusbug\html css\JavaScript-jQuery\Task1\assets\task1.js"></script>
+</head>
+<style>
+    :root{
+        font:normal normal 14px/20px "Arial",sans-serif
+    }
+    table {
+        border: 10px;
+        width: flex;
+    }
+
+    th,td {
+        font-size: 20px;
+        padding: 10px;
+        text-align: left;
+
+    }
+
+    th {
+        background-position: 2px;
+        background-color: #afafb19f;
+    }
+    input[type=text], select, textarea {
+    width: 143%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: -12px;
+    margin-bottom: -8px;
+    resize: vertical;
+}
+    input[type=mobile_number], select, textarea {
+    width: 143%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: -12px;
+    margin-bottom: -8px;
+    resize: vertical;
+    }
+    input[type=zipcode], select, textarea {
+    width: 143%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: -12px;
+    margin-bottom: -8px;
+    resize: vertical;
+    }
+    input[type=date], select, textarea {
+    width: 143%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: -12px;
+    margin-bottom: -8px;
+    resize: vertical;
+    }
+</style>
+
+<body align="center">
+    <h1>Enter Your Details</h1>
+    <table id="myTable" cellspacing="2" align="center" cellpadding="8" border="0">
+        <tr>
+            <td> Name :</td>
+        </tr>
+        <tr>
+            <td><input type="text" placeholder="Enter your name" id="name1"></td>
+            <span id="nameError" class="error"></span>
+        </tr>
+
+        <tr>
+            <td>Email :</td>
+        </tr>
+        <tr>
+            <td><input type="text" placeholder="Enter your email id" id="email1"></td>
+            <span id="emailError" class="error"></span>
+        </tr>
+        <tr>
+            <td>Number :</td>
+        </tr>
+        <tr>
+            <td><input type="mobile_number" placeholder="Enter_mobile_number" id="num"> </td>
+        </tr>
+        <tr>
+            <td>Enter zip-code :</td>
+        </tr>
+        <tr>
+            <td><input type="zipcode" placeholder="6-digit-zip" id="zip"> </td>
+        </tr>
+
+        <tr>
+            <td><label for="doB">Date of Birth (dd/mm/yyyy):</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="date" id="doB" name="dob" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <h4> Select-Gender : </h4>
+                </label>
+                <input type="radio" name="gender" value="male" id="men"> Male
+                <input type="radio" name="gender" value="female" id="women"> Female
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                <h4> Enter your Hobbies :</h4>
+                <input type="checkbox" id="hob1" name="hobby" value="Reading">
+                <label> Reading</label><br>
+                <input type="checkbox" id="hob2" name="hobby" value="Dancing">
+                <label> Dancing</label><br>
+                <input type="checkbox" id="hob3" name="hobby" value="Singing">
+                <label> Singing</label><br>
+                <input type="checkbox" id="hob3" name="hobby" value="Cricket">
+                <label>Cricket</label><br>
+        </tr>
+        </td>
+        <tr>
+            <td>
+                <label>
+                    <h4>Technology :</h4>
+                </label>
+                <select id="technology" name="technology" required>
+                    <option value="" disabled selected>Select a technology</option>
+                    <option value="web">Python</option>
+                    <option value="mobile">PHP</option>
+                    <option value="data">CSS</option>
+                    <option value="ai">HTML</option>
+                </select><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                <input type="submit" value="Submit" onClick="create_account()">
+                <button type="button" id="viewButton" onclick="view_account()">View</button>
+                <button id="updateButton" style="display: none;">Update</button>
+            </td>
+        </tr>
+    </table>
+    <div id="display-data"></div>
+</body>
+
+</html>
