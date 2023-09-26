@@ -1,306 +1,449 @@
-function create_account() {
-    var nameInput = document.getElementById("name1").value;
-    var emailInput = document.getElementById("email1").value;
-    var numInput = document.getElementById("num").value;
-    var zipInput = document.getElementById("zip").value;
-    var dateOfBirthInput = document.getElementById("doB").value;
-
-    var technology = document.getElementById("technology");
-    var technologyInput = technology.value;
-    var name = nameInput;
-    var email = emailInput;
-    var numb = numInput;
-    var zip = zipInput;
-    var date_of_birth = dateOfBirthInput;
-    var gender = document.querySelector('input[name="gender"]:checked');
-    var hobby = document.querySelector('input[name="hobby"]:checked ');
-    var technology = technologyInput;
-    var hobbies = document.querySelectorAll('input[name="hobby"]:checked');
-    var selectedHobbies = [];
-
-    hobbies.forEach(function (checkbox) {
-        selectedHobbies.push(checkbox.value);
-    });
-
-    //Code for Email validation
-    var letters = /^[A-Za-z]+$/;
-    var email_val = /^[a-zA-Z0-9.]+@[a-zA-Z]+(?:\.[a-zA-Z0-9-]+)*$/;
-    //other validations required code
-    if (nameInput.length > 25) {
-        alert("Name must be at most 25 characters long");
-    } else if (
-        name == "" ||
-        email == "" ||
-        numb == "" ||
-        zip == "" ||
-        date_of_birth == "" ||
-        gender == "" ||
-        hobby == "" ||
-        technology == ""
+// First name field validation
+function validateFname() {
+    let fname = document.getElementById("detailForm").fname.value;
+  
+    // Required field validation
+    if (fname == null || fname == "") {
+      document.getElementById("fname-error").innerText = "Required field";
+      // First name length validation
+    } else if (fname.length > 20) {
+      document.getElementById("fname-error").innerText =
+        "Enter a name upto 20 characters";
+    } else {
+      document.getElementById("fname-error").innerText = "";
+    }
+  }
+  
+  // Last name field validation
+  function validateLname() {
+    let lname = document.getElementById("detailForm").lname.value;
+  
+    // Required field validation
+    if (lname == null || lname == "") {
+      document.getElementById("lname-error").innerText = "Required field";
+    }
+    // First name length validation
+    else if (lname.length > 20) {
+      document.getElementById("lname-error").innerText =
+        "Enter a name upto 20 characters";
+    } else {
+      document.getElementById("lname-error").innerText = "";
+    }
+  }
+  
+  // Email field validation
+  function validateEmail() {
+    let email = document.getElementById("detailForm").email.value;
+  
+    // Required field validation
+    if (email == null || email == "") {
+      document.getElementById("email-error").innerText = "Required field";
+    }
+  
+    // Email format validation
+    else {
+      let regex = /^[a-z0-9.]+@[a-z]+\.[a-z]{2,3}$/;
+      let result = regex.test(email);
+      if (!result) {
+        document.getElementById("email-error").innerText =
+          "Please enter a valid email";
+      } else {
+        document.getElementById("email-error").innerText = "";
+      }
+    }
+  }
+  
+  // Phone no. field validation
+  function validateContact() {
+    let contact = document.getElementById("detailForm").contact.value;
+    let regex =
+      /^\+?([0-9]{2})\)?[-. ]?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    let result = regex.test(contact);
+    // Required field validation
+    if (contact == null || contact == "") {
+      document.getElementById("contact-error").innerText = "Required field";
+    }
+  
+    // Contact format validation
+    else {
+      if (!result) {
+        document.getElementById("contact-error").innerText =
+          "Enter a valid contact number";
+      } else {
+        document.getElementById("contact-error").innerText = "";
+      }
+    }
+  }
+  
+  // Zip code field validation
+  function validateZip() {
+    let zip = document.getElementById("detailForm").zip.value;
+  
+    // Required field validation
+    if (zip == null || zip == "") {
+      document.getElementById("zip-error").innerText = "Required field";
+    }
+  
+    // Zip code format validation
+    else {
+      if (zip.length != 6) {
+        document.getElementById("zip-error").innerText =
+          "Enter a 6 digit zip-code";
+      } else {
+        document.getElementById("zip-error").innerText = "";
+      }
+    }
+  }
+  
+  // Date of birth field validation
+  function validateDateOfBirth() {
+    let dob = document.getElementById("detailForm").dob.value;
+  
+    // Required field validation
+    if (dob == null || dob == "") {
+      document.getElementById("dob-error").innerText = "Required field";
+    }
+  }
+  
+  // Gender field validation
+  function validateGender() {
+    let gender = document.getElementById("detailForm").gender.value;
+  
+    // Required field validation
+    if (gender == null || gender == "") {
+      document.getElementById("gender-error").innerText = "Required field";
+    } else {
+      document.getElementById("gender-error").innerText = "";
+    }
+  }
+  
+  // Hobby field validation
+  function validateHobby() {
+    let hobby = [];
+    if (document.getElementById("detailForm").cricket.checked == true) {
+      hobby.push(document.getElementById("detailForm").cricket.value);
+    }
+    if (document.getElementById("detailForm").reading.checked == true) {
+      hobby.push(document.getElementById("detailForm").reading.value);
+    }
+    if (document.getElementById("detailForm").traveling.checked == true) {
+      hobby.push(document.getElementById("detailForm").traveling.value);
+    }
+    if (document.getElementById("detailForm").movies.checked == true) {
+      hobby.push(document.getElementById("detailForm").movies.value);
+    }
+  
+    // Required field validation
+    if (hobby.length == 0) {
+      document.getElementById("hobby-error").innerText = "Required field";
+    } else {
+      document.getElementById("hobby-error").innerText = "";
+    }
+  }
+  
+  // Technology field validation
+  function validateTechnology() {
+    let tech = [];
+    for (let option of document.getElementById("detailForm").tech.options) {
+      if (option.selected) {
+        tech.push(option.value);
+      }
+    }
+  
+    // Required field validation
+    if (tech == null || tech == "") {
+      document.getElementById("tech-error").innerText = "Required field";
+    } else {
+      document.getElementById("tech-error").innerText = "";
+    }
+  }
+  
+  // Function - Validate form
+  function validateForm() {
+    // Initialize all the field values
+    let fname = document.getElementById("detailForm").fname.value;
+    let lname = document.getElementById("detailForm").lname.value;
+    let email = document.getElementById("detailForm").email.value;
+    let contact = document.getElementById("detailForm").contact.value;
+    let zip = document.getElementById("detailForm").zip.value;
+    let dob = document.getElementById("detailForm").dob.value;
+    let gender = document.getElementById("detailForm").gender.value;
+    let hobby = [];
+    if (document.getElementById("detailForm").cricket.checked == true) {
+      hobby.push(document.getElementById("detailForm").cricket.value);
+    }
+    if (document.getElementById("detailForm").reading.checked == true) {
+      hobby.push(document.getElementById("detailForm").reading.value);
+    }
+    if (document.getElementById("detailForm").traveling.checked == true) {
+      hobby.push(document.getElementById("detailForm").traveling.value);
+    }
+    if (document.getElementById("detailForm").movies.checked == true) {
+      hobby.push(document.getElementById("detailForm").movies.value);
+    }
+  
+    let tech = [];
+    for (let option of document.getElementById("detailForm").tech.options) {
+      if (option.selected) {
+        tech.push(option.value);
+      }
+    }
+  
+    // Defining regular expression
+    let regexEmail = /^[a-z0-9._]+@[a-z]+\.[a-z]{2,3}$/;
+    let resultEmail = regexEmail.test(email);
+  
+    let regexContact =
+      /^\+?([0-9]{2})\)?[-. ]?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    let resultContact = regexContact.test(contact);
+  
+    // Check for empty fields and throw error if empty
+    if (
+      fname == null ||
+      fname == "" ||
+      lname == null ||
+      lname == "" ||
+      email == null ||
+      email == "" ||
+      contact == null ||
+      contact == "" ||
+      zip == null ||
+      zip == "" ||
+      dob == null ||
+      dob == "" ||
+      gender == null ||
+      gender == "" ||
+      hobby == null ||
+      hobby == "" ||
+      tech == null ||
+      tech == ""
     ) {
-        alert(
-            "Enter each detail correctly, including selecting a technology and gender"
-        );
-    } else if (!letters.test(name)) {
-        alert("Name is incorrect must contain alphabets only");
-    } else if (!email_val.test(email)) {
-        alert("Invalid email format please enter valid email id");
-    } else if (document.getElementById("num").value.length !== 10) {
-        alert("Enter a valid Phone-Number (Not 10 digits) ");
-    } else if (document.getElementById("zip").value.length !== 6) {
-        alert(" Enter Valid zip code");
-    } else if (!gender) {
-        alert("Select your gender");
-    } else if (!hobby) {
-        alert("Select your Hobbies");
-    } else {
-        // Save the data to local storage
-        var accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-        var newAccount = {
-            name: name,
-            email: email,
-            phone: numb,
-            zip: zip,
-            dob: date_of_birth,
-            gender: gender.value,
-            technology: technology,
-            hobbies: selectedHobbies,
-        };
-        accounts.unshift(newAccount);
-        localStorage.setItem("accounts", JSON.stringify(accounts));
-
-        alert("Congratulations! Your account has been created successfully");
-
-        clearForm();
+      alert("Fill the required fields");
+      return false;
     }
-}
-function view_account() {
-    var displayData = document.getElementById("display-data");
-    var accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-    var table = document.createElement("table");
-
-    table.innerHTML = `
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Zip Code</th>
-      <th>Date of Birth</th>
-      <th>Gender</th>
-      <th>Technology</th>
-      <th>Hobbies</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>`;
-    console.log(accounts);
-    accounts.forEach((account, index) => {
-
-        var row = table.insertRow();
-
-
-        for (const key in account) {
-            if (Object.hasOwnProperty.call(account, key)) {
-                var cell = row.insertCell();
-                cell.textContent = account[key];
-
-            }
-        }
-
-
-        var editCell = row.insertCell();
-        var editButton = document.createElement("button");
-        editButton.textContent = "Edit";
-        editButton.addEventListener("click", () => edit_account(index));
-        editCell.appendChild(editButton);
-
-        var deleteCell = row.insertCell();
-        var deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click", () => delete_account(index));
-        deleteCell.appendChild(deleteButton);
-    });
-
-    displayData.innerHTML = "";
-    displayData.appendChild(table);
-}
-function createEditHandler(index) {
-    return function () {
-        edit_account(index);
-    };
-}
-
-function edit_account(index) {
-    var accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-    var account = accounts[index];
-
-    if (account) {
-        // Populate the form fields with existing data
-        document.getElementById("name1").value = account.name;
-        document.getElementById("email1").value = account.email;
-        document.getElementById("num").value = account.phone;
-        document.getElementById("zip").value = account.zip;
-        document.getElementById("doB").value = account.dob;
-        var technology = document.getElementById("technology");
-        technology.options[technology.selectedIndex].text = account.technology;
-        var element = document.getElementById('updateButton');
-        element.style.display = null;
-
-        // Populate the gender radio buttons based on the existing data
-        var genderRadios = document.getElementsByName("gender");
-        for (var i = 0; i < genderRadios.length; i++) {
-            if (genderRadios[i].value === account.gender) {
-                genderRadios[i].checked = true;
-                break;
-            }
-        }
-
-        // Populate the checkboxes based on the existing data
-        var hobbies = document.getElementsByName("hobby");
-        var accountHobbies = account.hobbies || [];
-
-        for (var i = 0; i < hobbies.length; i++) {
-            hobbies[i].checked = accountHobbies.includes(hobbies[i].value);
-        }
-    } else {
-        console.error("Account not found at index " + index);
+  
+    // Check for fname length
+    else if (fname.length > 20) {
+      document.getElementById("fname-error").innerText =
+        "Enter a name upto 20 characters";
     }
-
-    // Update the account data when the user clicks the "Update" button
-    document.getElementById("updateButton").onclick = function () {
-        // Update the account data with values from the form fields
-        account.name = document.getElementById("name1").value;
-        account.email = document.getElementById("email1").value;
-        account.phone = document.getElementById("num").value;
-        account.zip = document.getElementById("zip").value;
-        account.dob = document.getElementById("doB").value;
-        var technology = document.getElementById("technology");
-        account.technology = technology.options[technology.selectedIndex].text
-
-        // Update the gender based on the selected radio button
-        for (var i = 0; i < genderRadios.length; i++) {
-            if (genderRadios[i].checked) {
-                account.gender = genderRadios[i].value;
-                break;
-            }
-        }
-
-        // Update the hobbies based on the selected checkboxes
-        account.hobbies = [];
-        for (var i = 0; i < hobbies.length; i++) {
-            if (hobbies[i].checked) {
-                account.hobbies.push(hobbies[i].value);
-            }
-        }
-
-        // Update the modified account in the accounts array
-        accounts[index] = account;
-
-        // Update the accounts array in local storage
-        localStorage.setItem("accounts", JSON.stringify(accounts));
-
-        // Clear the form fields and display the updated data
-        clearForm();
-        view_account();
-    };
-}
-
-
-// Function to clear the form fields
-function clearForm() {
-    const table = document.getElementById("myTable");
-    document.getElementById("name1").value = "";
-    document.getElementById("email1").value = "";
-    document.getElementById("num").value = "";
-    document.getElementById("zip").value = "";
-    document.getElementById("doB").value = "";
-
-    // Reset radio buttons to their default state (unselected)
-    document.getElementById("men").checked = false;
-    document.getElementById("women").checked = false;
-
-    // Reset checkboxes to their default state (unchecked)
-    document.getElementById("hob1").checked = false;
-    document.getElementById("hob2").checked = false;
-    document.getElementById("hob3").checked = false;
-
-    // Reset the select dropdown to its default state (unselected)
-    document.getElementById("technology").selectedIndex = 0;
-
-}
-
-function createDeleteHandler(index) {
-    return function () {
-        delete_account(index);
-    };
-}
-var viewButton = document.getElementById("viewButton");
-if (viewButton) {
-    viewButton.addEventListener("click", displayDataInTable);
-}
-
-
-function delete_account(index) {
-    var accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-    alert("are you sure want to delete user");
-
-    // Remove the account at the specified index
-    accounts.splice(index, 1);
-
-    // Update the accounts array in local storage
-    localStorage.setItem("accounts", JSON.stringify(accounts));
-
-    // Refresh the displayed data
-    view_account();
-}
-
-// Function to update user data from local storage
-function updateUserData() {
-    var accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-    var indexToUpdate = accounts.length - 1;
-
-    if (indexToUpdate >= 0 && indexToUpdate < accounts.length) {
-        var accountToUpdate = accounts[indexToUpdate];
-
-        // Update the user data with values from the form fields
-        accountToUpdate.name = nameInput;
-        accountToUpdate.email = emailInput;
-        accountToUpdate.phone = numInput;
-        accountToUpdate.zip = zipInput;
-        accountToUpdate.dob = dateOfBirthInput;
-        accountToUpdate.technology = technologyInput;
-
-        // Update the gender based on the selected radio button
-        var genderRadios = document.getElementsByName("gender");
-        for (var i = 0; i < genderRadios.length; i++) {
-            if (genderRadios[i].checked) {
-                accountToUpdate.gender = genderRadios[i].value;
-                break;
-            }
-        }
-
-        // Update the hobbies based on the selected checkboxes
-        var hobbies = document.querySelectorAll('input[name="hobby"]:checked');
-        var selectedHobbies = [];
-
-        hobbies.forEach(function (checkbox) {
-            selectedHobbies.push(checkbox.value);
-        });
-
-        accountToUpdate.hobbies = selectedHobbies;
-
-        // Update the modified user data in the accounts array
-        accounts[indexToUpdate] = accountToUpdate;
-
-        // Update the accounts array in local storage
-        localStorage.setItem("accounts", JSON.stringify(accounts));
-        document
-            .getElementById("updateButton")
-            .addEventListener("click", updateUserData);
-
-        // Clear the form fields and display the updated data
-        clearForm();
-        view_account();
-    } else {
-        console.error("Invalid index to update");
+  
+    // Check for lname length
+    else if (lname.length > 20) {
+      document.getElementById("lname-error").innerText =
+        "Enter a name upto 20 characters";
     }
-}
+    // Check for valid email
+    else if (!resultEmail) {
+      alert("Please enter a valid email");
+      return false;
+    }
+  
+    // Check for valid phone no
+    else if (!resultContact) {
+      alert("Enter a valid contact number");
+      return false;
+    }
+  
+    // Check for valid zip code
+    else if (zip.length != 6) {
+      alert("Enter a 6 digit zip-code");
+      return false;
+    }
+  
+    // Return true if valid input
+    else {
+      return true;
+    }
+  }
+  
+  // Function - Submit form
+  function submitForm() {
+    // Initialize all the field values
+    let fname = document.getElementById("detailForm").fname.value;
+    let lname = document.getElementById("detailForm").lname.value;
+    let email = document.getElementById("detailForm").email.value;
+    let contact = document.getElementById("detailForm").contact.value;
+    let zip = document.getElementById("detailForm").zip.value;
+    let dob = document.getElementById("detailForm").dob.value;
+    let gender = document.getElementById("detailForm").gender.value;
+    let hobby = [];
+    if (document.getElementById("detailForm").cricket.checked == true) {
+      hobby.push(document.getElementById("detailForm").cricket.value);
+    }
+    if (document.getElementById("detailForm").reading.checked == true) {
+      hobby.push(document.getElementById("detailForm").reading.value);
+    }
+    if (document.getElementById("detailForm").traveling.checked == true) {
+      hobby.push(document.getElementById("detailForm").traveling.value);
+    }
+    if (document.getElementById("detailForm").movies.checked == true) {
+      hobby.push(document.getElementById("detailForm").movies.value);
+    }
+  
+    let tech = [];
+    for (let option of document.getElementById("detailForm").tech.options) {
+      if (option.selected) {
+        tech.push(option.value);
+      }
+    }
+  
+    // Check for validation
+    let validationStatus = validateForm();
+  
+    // Store data if valid
+    if (validationStatus) {
+      // Add new data row
+      let table = document.getElementById("view-data");
+      let row = table.insertRow(1);
+  
+      // Add cells into new row
+      let cell0 = row.insertCell(0);
+      let cell1 = row.insertCell(1);
+      let cell2 = row.insertCell(2);
+      let cell3 = row.insertCell(3);
+      let cell4 = row.insertCell(4);
+      let cell5 = row.insertCell(5);
+      let cell6 = row.insertCell(6);
+      let cell7 = row.insertCell(7);
+      let cell8 = row.insertCell(8);
+      let cell9 = row.insertCell(9);
+      let cell10 = row.insertCell(10);
+  
+      // Insert data into cells
+      cell0.innerHTML = '<input type="checkbox" id="select"/>';
+      cell1.innerText = fname;
+      cell2.innerText = lname;
+      cell3.innerText = email;
+      cell4.innerText = contact;
+      cell5.innerText = zip;
+      cell6.innerText = dob;
+      cell7.innerText = gender;
+      cell8.innerText = hobby;
+      cell9.innerText = tech;
+      cell10.innerHTML =
+        '<input type="button" value="Edit" onclick="viewData(this)"/>';
+  
+      // Success message and reset form
+      alert("Form has been submitted successfully");
+      document.getElementById("detailForm").reset();
+      return false;
+    } else {
+      return false;
+    }
+  }
+  
+  // Function - Delete data
+  function deleteData() {
+    // Confirmation of delete from user
+    let result = confirm("Are you sure you want to delete?");
+  
+    if (result) {
+      let table = document.getElementById("view-data");
+      let rowCount = table.rows;
+      let checkedIndexes = [];
+      for (let i = 1; i < rowCount.length; i++) {
+        let selectedRow = rowCount[i].cells[0].children[0].checked;
+        if (selectedRow) {
+          checkedIndexes.push(i);
+        }
+      }
+      for (let k = checkedIndexes.length - 1; k >= 0; k--) {
+        table.deleteRow(checkedIndexes[k]);
+      }
+    }
+  }
+  
+  let row;
+  function viewData(btn) {
+    // Fetch the data of selected row into the form
+    document.getElementById("detailForm").reset();
+  
+    row = btn.parentNode.parentNode;
+    document.getElementById("detailForm").fname.value = row.cells[1].innerText;
+    document.getElementById("detailForm").lname.value = row.cells[2].innerText;
+    document.getElementById("detailForm").email.value = row.cells[3].innerText;
+    document.getElementById("detailForm").contact.value = row.cells[4].innerText;
+    document.getElementById("detailForm").zip.value = row.cells[5].innerText;
+    document.getElementById("detailForm").dob.value = row.cells[6].innerText;
+    document.getElementById("detailForm").gender.value = row.cells[7].innerText;
+    let hobby = row.cells[8].innerText.split(",");
+    if (hobby.includes(document.getElementById("detailForm").cricket.value)) {
+      document.getElementById("detailForm").cricket.checked = true;
+    }
+    if (hobby.includes(document.getElementById("detailForm").reading.value)) {
+      document.getElementById("detailForm").reading.checked = true;
+    }
+    if (hobby.includes(document.getElementById("detailForm").traveling.value)) {
+      document.getElementById("detailForm").traveling.checked = true;
+    }
+    if (hobby.includes(document.getElementById("detailForm").movies.value)) {
+      document.getElementById("detailForm").movies.checked = true;
+    }
+    let tech = row.cells[9].innerText.split(",");
+    for (let option of document.getElementById("detailForm").tech.options) {
+      if (tech.includes(option.value)) {
+        option.selected = true;
+      }
+    }
+  
+    // Disable and enable submit and update button respectively
+    document.getElementById("submit").disabled = true;
+    document.getElementById("update").disabled = false;
+  }
+  
+  function updateData() {
+    // Initialize all the field values
+    let fname = document.getElementById("detailForm").fname.value;
+    let lname = document.getElementById("detailForm").lname.value;
+    let email = document.getElementById("detailForm").email.value;
+    let contact = document.getElementById("detailForm").contact.value;
+    let zip = document.getElementById("detailForm").zip.value;
+    let dob = document.getElementById("detailForm").dob.value;
+    let gender = document.getElementById("detailForm").gender.value;
+    let hobby = [];
+    if (document.getElementById("detailForm").cricket.checked == true) {
+      hobby.push(document.getElementById("detailForm").cricket.value);
+    }
+    if (document.getElementById("detailForm").reading.checked == true) {
+      hobby.push(document.getElementById("detailForm").reading.value);
+    }
+    if (document.getElementById("detailForm").traveling.checked == true) {
+      hobby.push(document.getElementById("detailForm").traveling.value);
+    }
+    if (document.getElementById("detailForm").movies.checked == true) {
+      hobby.push(document.getElementById("detailForm").movies.value);
+    }
+  
+    let tech = [];
+    for (let option of document.getElementById("detailForm").tech.options) {
+      if (option.selected) {
+        tech.push(option.value);
+      }
+    }
+  
+    // Check for validation
+    let validationStatus = validateForm();
+  
+    // Update data if valid
+    if (validationStatus) {
+      row.cells[1].innerText = fname;
+      row.cells[2].innerText = lname;
+      row.cells[3].innerText = email;
+      row.cells[4].innerText = contact;
+      row.cells[5].innerText = zip;
+      row.cells[6].innerText = dob;
+      row.cells[7].innerText = gender;
+      row.cells[8].innerText = hobby;
+      row.cells[9].innerText = tech;
+  
+      alert("Form has been updated successfully");
+      document.getElementById("detailForm").reset();
+      document.getElementById("submit").disabled = false;
+      document.getElementById("update").disabled = true;
+      return false;
+    } else {
+      return false;
+    }
+  }
+  

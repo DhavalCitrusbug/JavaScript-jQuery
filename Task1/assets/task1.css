@@ -1,0 +1,62 @@
+div {
+    width: auto;
+    height: auto;
+    margin: 100px 250px;
+    border: 1px solid rgb(185, 182, 182);
+    padding: 50px;
+  }
+  
+  .header {
+    padding-left: 20px;
+  }
+  
+  .form-format {
+    width: auto;
+    height: auto;
+    padding: 40px 20px;
+  }
+  
+  .label-format {
+    padding: 5px 0px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .input-format-text {
+    width: 100%;
+    border: 0.5px solid lightgray;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .input-format-text:focus {
+    border: 0.5px solid lightgray;
+  }
+  
+  .input-format-choice {
+    border: 0.5px solid lightgray;
+  }
+  
+  .input-format-select {
+    height: auto;
+    width: 100px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .error-message {
+    color: red;
+    padding-left: 10px;
+    font-size: 14px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .table-format {
+    margin: 25px 0px;
+  }
+  
+  tr {
+    padding: 5px 5px;
+  }
+  
+  th,
+  td {
+    padding: 5px 5px;
+  }

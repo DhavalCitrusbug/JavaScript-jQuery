@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="C:\Users\Dhaval Citrusbug\html css\JavaScript-jQuery\Task1\assets\task1.css"/>
+    <script src="C:\Users\Dhaval Citrusbug\html css\JavaScript-jQuery\Task1\assets\task1.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <div>
+      <h2 class="header">Registration Form</h2>
+
+      <form
+        name="detailForm"
+        action=""
+        class="form-format"
+        method="post"
+        id="detailForm"
+        onsubmit="return submitForm()"
+      >
+        <label for="fname" class="label-format">First Name</label>
+        <span id="fname-error" class="error-message"></span><br />
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          class="input-format-text"
+          onkeyup="validateFname()"
+          onchange="validateFname()"
+        /><br /><br />
+
+        <label for="lname" class="label-format">Last Name</label>
+        <span id="lname-error" class="error-message"></span><br />
+        <input
+          type="text"
+          id="lname"
+          name="lname"
+          class="input-format-text"
+          onkeyup="validateLname()"
+          onchange="validateLname()"
+        /><br /><br />
+
+        <label for="email" class="label-format">Email Address</label>
+        <span id="email-error" class="error-message"></span><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="input-format-text"
+          onkeyup="validateEmail()"
+          onchange="validateEmail()"
+        /><br /><br />
+
+        <label for="contact" class="label-format">Phone no.</label>
+        <span id="contact-error" class="error-message"></span><br />
+        <input
+          type="text"
+          id="contact"
+          name="contact"
+          class="input-format-text"
+          onkeyup="validateContact()"
+          onchange="validateContact()"
+        /><br /><br />
+
+        <label for="zip" class="label-format">Zip Code</label>
+        <span id="zip-error" class="error-message"></span><br />
+        <input
+          type="number"
+          id="zip"
+          name="zip"
+          class="input-format-text"
+          onkeyup="validateZip()"
+          onchange="validateZip()"
+        /><br /><br />
+
+        <label for="dob" class="label-format">Date of birth</label>
+        <span id="dob-error" class="error-message"></span><br />
+        <input
+          type="date"
+          id="dob"
+          name="dob"
+          class="input-format-text"
+          onkeyup="validateDateOfBirth()"
+          onchange="validateDateOfBirth()"
+        /><br /><br />
+
+        <label class="label-format">Gender</label>
+        <span id="gender-error" class="error-message"></span><br />
+        <input
+          type="radio"
+          id="male"
+          name="gender"
+          value="Male"
+          class="input-format-choice"
+          onkeyup="validateGender()"
+          onchange="validateGender()"
+        />
+        <label for="male" class="label-format">Male</label>
+        <input
+          type="radio"
+          id="female"
+          name="gender"
+          value="Female"
+          class="input-format-choice"
+          onkeyup="validateGender()"
+          onchange="validateGender()"
+        />
+        <label for="female" class="label-format">Female</label>
+        <input
+          type="radio"
+          id="other"
+          name="gender"
+          value="Other"
+          class="input-format-choice"
+          onkeyup="validateGender()"
+          onchange="validateGender()"
+        />
+        <label for="other" class="label-format">Other</label><br /><br />
+
+        <label class="label-format">Hobby</label>
+        <span id="hobby-error" class="error-message"></span><br />
+        <input
+          type="checkbox"
+          id="cricket"
+          name="cricket"
+          value="Cricket"
+          onchange="validateHobby()"
+          onkeyup="validateHobby()"
+        />
+        <label for="cricket"> Cricket</label><br />
+        <input
+          type="checkbox"
+          id="reading"
+          name="reading"
+          value="Reading"
+          onchange="validateHobby()"
+          onkeyup="validateHobby()"
+        />
+        <label for="reading"> Reading</label><br />
+        <input
+          type="checkbox"
+          id="traveling"
+          name="traveling"
+          value="Traveling"
+          onchange="validateHobby()"
+          onkeyup="validateHobby()"
+        />
+        <label for="traveling"> Traveling</label><br />
+        <input
+          type="checkbox"
+          id="movies"
+          name="movies"
+          value="Movies"
+          onchange="validateHobby()"
+          onkeyup="validateHobby()"
+        />
+        <label for="movies"> Movies</label><br /><br />
+
+        <label for="tech" class="label-format">Technology</label>
+        <span id="tech-error" class="error-message"></span><br />
+        <select
+          id="tech"
+          name="tech"
+          class="input-format-select"
+          size="4"
+          multiple
+          onkeyup="validateTechnology()"
+          onchange="validateTechnology()"
+        >
+          <option value="Python">Python</option>
+          <option value="Php">Php</option>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option></select
+        ><br /><br />
+
+        <input type="submit" value="Submit" id="submit" />
+        <br />
+      </form>
+
+      <button id="update" disabled onclick="updateData()">Update</button>
+
+      <table id="view-data" class="table table-striped table-format">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone no.</th>
+            <th scope="col">Zip Code</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Hobby</th>
+            <th scope="col">Technology</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+      </table>
+
+      <button onclick="deleteData()">Delete</button>
+    </div>
+  </body>
+</html>
