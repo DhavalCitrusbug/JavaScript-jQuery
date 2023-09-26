@@ -10,18 +10,20 @@
     table {
         border: 10px;
         width: flex;
+        margin-left: 100px;
     }
 
     th,td {
         font-size: 20px;
-        padding: 10px;
+        padding: 8px;
         text-align: left;
 
     }
 
     th {
         background-position: 2px;
-        background-color: #afafb19f;
+        background-color: #6b6b709f;
+        align-items: center;
     }
     input[type=text], select, textarea {
     width: 143%;
@@ -63,6 +65,37 @@
     margin-bottom: -8px;
     resize: vertical;
     }
+.button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+    background-color: #228caf;
+    color: white;
+}
+
+#viewButton {
+    background-color: #228caf;
+    color: white;
+}
+
+#updateButton {
+    background-color: #228caf;
+    color: white;
+}
+
+
+
+    
 </style>
 
 <body align="center">
@@ -134,12 +167,11 @@
                 <label>
                     <h4>Technology :</h4>
                 </label>
-                <select id="technology" name="technology" required>
-                    <option value="" disabled selected>Select a technology</option>
-                    <option value="web">Python</option>
-                    <option value="mobile">PHP</option>
-                    <option value="data">CSS</option>
-                    <option value="ai">HTML</option>
+                <select id="technology" name="technology" multiple required>
+                    <option value="Python">Python</option>
+                    <option value="PHP">PHP</option>
+                    <option value="CSS">CSS</option>
+                    <option value="HTML">HTML</option>
                 </select><br>
             </td>
         </tr>
