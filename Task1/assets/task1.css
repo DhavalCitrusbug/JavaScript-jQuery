@@ -1,62 +1,79 @@
-div {
-    width: auto;
-    height: auto;
-    margin: 100px 250px;
-    border: 1px solid rgb(185, 182, 182);
-    padding: 50px;
-  }
-  
-  .header {
-    padding-left: 20px;
-  }
-  
-  .form-format {
-    width: auto;
-    height: auto;
-    padding: 40px 20px;
-  }
-  
-  .label-format {
-    padding: 5px 0px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .input-format-text {
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #333;
+    margin-left: -1250px;
+}
+
+table {
+    margin: 0 auto;
+    width: 70%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #b0aeb4;
+    color: #fff;
+}
+
+input[type="text"], input[type="date"], select {
     width: 100%;
-    border: 0.5px solid lightgray;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .input-format-text:focus {
-    border: 0.5px solid lightgray;
-  }
-  
-  .input-format-choice {
-    border: 0.5px solid lightgray;
-  }
-  
-  .input-format-select {
-    height: auto;
-    width: 100px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .error-message {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+input[type="mobile_number"], input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+input[type="zipcode"], input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+input[type="submit"]{
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.error {
     color: red;
-    padding-left: 10px;
-    font-size: 14px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .table-format {
-    margin: 25px 0px;
-  }
-  
-  tr {
-    padding: 5px 5px;
-  }
-  
-  th,
-  td {
-    padding: 5px 5px;
-  }
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #555;
+}
+input[type="submit"]:hover{
+    background-color: #555;
+}
