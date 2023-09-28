@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.step {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.step.active {
+    display: block;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    background-color: #28A745;
+}
+
+#summary {
+    background-color: #88acbbda;
+    color: #fffefe;
+    padding: 20px;
+    text-align: center;
+}
+
+#summary h2 {
+    font-size: 30px;
+}
+
+#summary p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#summary span {
+    font-weight: bold;
+}
+
+/* Validation error styles */
+.error-message {
+    color: #FF0000;
+    font-size: 14px;
+}

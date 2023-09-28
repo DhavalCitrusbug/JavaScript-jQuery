@@ -14,7 +14,7 @@
         </tr>
         <tr>
             <td><input type="text" placeholder="Enter your name" id="name"></td>
-            <span id="nameError" class="error"></span>
+            <span id="nameError" class="error-massage"></span>
 
         </tr>
         <tr>
@@ -22,24 +22,27 @@
         </tr>
         <tr>
             <td><input type="text" placeholder="Enter your email id" id="email"></td>
-            <span id="emailError" class="error"></span>
+            <span id="emailError" class="error-massage"></span>
         </tr>
         <tr>
             <td>Number :</td>
         </tr>
         <tr>
             <td><input type="mobile_number" placeholder="Enter mobile number" id="num"> </td>
+            <span id="numError" class="error-message"></span>
         </tr>
         <tr>
             <td>Enter zip-code :</td>
         </tr>
         <tr>
             <td><input type="zipcode" placeholder="6-digit-zip" id="zip"> </td>
+            <span id="zipError" class="error-message"></span>
         </tr>
 
         <tr>
             <td><label for="doB">Date of Birth (dd/mm/yyyy):</label>
                 <input type="date" id="doB" name="dob" required>
+                <span id="dobError" class="error-message"></span>
             </td>
         </tr>
         <tr>
@@ -51,6 +54,7 @@
                 <input type="radio" name="gender" value="female" id="women"> Female
                 <input type="radio" name="gender" value="Other" id="Other"> Other
             </td>
+            <span id="genderError" class="error-message"></span>
         </tr>
         <tr>
             <td>
@@ -64,8 +68,9 @@
                 <label> Reading</label><br>
                 <input type="checkbox" id="hob4" name="hobby" value="Singing">
                 <label> Singing</label><br>
+            </td>
+                <span id="hobbyError" class="error-message"></span>
         </tr>
-        </td>
         <tr>
             <td>
                 <label>
@@ -77,14 +82,16 @@
                     <option value="CSS">CSS</option>
                     <option value="HTML">HTML</option>
                 </select><br>
+                
             </td>
+            
         </tr>
         <tr>
             <td>
 
-                <input type="submit" value="Submit" onClick="create_account()">
+                <button type="submit" value="Submit" onClick="create_account()">Submit</button>
                 <button type="button" id="viewButton" onclick="view_account()">View</button>
-                <button type="button" id="updateButton"onclick="update_account()">Update</button>
+                <button type="update_button" id="updateButton" style="display: none;" onclick="update_account()">Update</button>
 
             </td>
         </tr>
